@@ -1,0 +1,537 @@
+///
+/// Custom Responsive Styles for Dr. Gkolezakis Website
+/// Mobile-first responsive design for new sections
+///
+
+/* Custom Features Grid - για statistics και contact sections */
+.features {
+	$padding: _size(padding, default);
+	
+	@include fixed-grid((
+		columns: 3,
+		gutters: ($padding * 0.5)
+	));
+	margin: 0 0 _size(element-margin) 0;
+
+	> section {
+		background-color: _palette(bg);
+		margin: 0 0 ($padding * 0.5) 0;
+		text-align: center;
+		@include padding(2rem, 1.5rem);
+		border-radius: _size(border-radius);
+		box-shadow: 0 0.125rem 0.5rem 0 rgba(0,0,0,0.1);
+
+		.icon {
+			&.major {
+				font-size: 2.5rem;
+				margin: 0 0 1rem 0;
+				display: block;
+			}
+		}
+
+		h3 {
+			margin: 0 0 1rem 0;
+			font-size: 1.25rem;
+		}
+
+		p {
+			margin: 0;
+			font-size: 0.9rem;
+			line-height: 1.6;
+		}
+	}
+
+	@include breakpoint('<=large') {
+		$padding: _size(padding, large);
+
+		@include fixed-grid((
+			columns: 3,
+			gutters: ($padding * 0.5),
+			prev-columns: 3
+		));
+
+		> section {
+			margin: 0 0 ($padding * 0.5) 0;
+			@include padding(1.5rem, 1.25rem);
+		}
+	}
+
+	@include breakpoint('<=medium') {
+		$padding: _size(padding, medium);
+
+		@include fixed-grid((
+			columns: 2,
+			gutters: ($padding * 0.5),
+			prev-columns: 3
+		));
+
+		> section {
+			margin: 0 0 ($padding * 0.5) 0;
+			@include padding(1.5rem, 1rem);
+
+			.icon.major {
+				font-size: 2rem;
+			}
+
+			h3 {
+				font-size: 1.125rem;
+			}
+		}
+	}
+
+	@include breakpoint('<=small') {
+		$padding: _size(padding, small);
+
+		@include fixed-grid((
+			columns: 1,
+			gutters: ($padding * 0.5),
+			prev-columns: 2
+		));
+
+		> section {
+			margin: 0 auto ($padding * 0.5) auto;
+			max-width: 20rem;
+			@include padding(1.25rem, 1rem);
+
+			.icon.major {
+				font-size: 1.75rem;
+			}
+
+			h3 {
+				font-size: 1rem;
+			}
+
+			p {
+				font-size: 0.85rem;
+			}
+		}
+	}
+
+	@include breakpoint('<=xsmall') {
+		> section {
+			max-width: 18rem;
+			@include padding(1rem, 0.75rem);
+		}
+	}
+}
+
+/* Posts Alt - για testimonials και doctor profile */
+.posts.alt {
+	$padding: _size(padding, default);
+
+	@include fixed-grid((
+		columns: 2,
+		gutters: ($padding * 0.5)
+	));
+
+	> article {
+		background-color: _palette(bg);
+		margin: 0 0 ($padding * 0.5) 0;
+		border-radius: _size(border-radius);
+		overflow: hidden;
+		box-shadow: 0 0.125rem 0.5rem 0 rgba(0,0,0,0.1);
+
+		> .image {
+			width: 100%;
+
+			img {
+				width: 100%;
+				display: block;
+			}
+		}
+
+		> .content {
+			@include padding(1.5rem, 1.5rem);
+
+			h3 {
+				margin: 0 0 1rem 0;
+				font-size: 1.25rem;
+			}
+
+			h4 {
+				margin: 0 0 0.75rem 0;
+				font-size: 0.9rem;
+				color: _palette(accent1, bg);
+				font-weight: _font(weight-bold);
+			}
+
+			blockquote {
+				font-style: italic;
+				margin: 0 0 1rem 0;
+				padding: 0;
+				border: none;
+				background: none;
+				font-size: 0.9rem;
+				line-height: 1.6;
+			}
+
+			.icons {
+				display: flex;
+				gap: 0.25rem;
+				margin: 1rem 0 0 0;
+
+				.icon {
+					color: #ffa500;
+					font-size: 1rem;
+				}
+			}
+
+			ul.alt {
+				li {
+					padding: 0.25rem 0;
+					font-size: 0.9rem;
+					
+					strong {
+						color: _palette(accent1, bg);
+						font-weight: _font(weight-bold);
+					}
+				}
+			}
+		}
+	}
+
+	@include breakpoint('<=large') {
+		$padding: _size(padding, large);
+
+		@include fixed-grid((
+			columns: 2,
+			gutters: ($padding * 0.5),
+			prev-columns: 2
+		));
+
+		> article {
+			margin: 0 0 ($padding * 0.5) 0;
+
+			> .content {
+				@include padding(1.25rem, 1.25rem);
+			}
+		}
+	}
+
+	@include breakpoint('<=medium') {
+		$padding: _size(padding, medium);
+
+		@include fixed-grid((
+			columns: 1,
+			gutters: ($padding * 0.5),
+			prev-columns: 2
+		));
+
+		> article {
+			margin: 0 auto ($padding * 0.5) auto;
+			max-width: 32rem;
+
+			> .content {
+				@include padding(1.25rem, 1.25rem);
+
+				h3 {
+					font-size: 1.125rem;
+				}
+
+				blockquote {
+					font-size: 0.875rem;
+				}
+			}
+		}
+	}
+
+	@include breakpoint('<=small') {
+		$padding: _size(padding, small);
+
+		@include fixed-grid((
+			columns: 1,
+			gutters: ($padding * 0.5),
+			prev-columns: 1
+		));
+
+		> article {
+			max-width: 28rem;
+
+			> .content {
+				@include padding(1rem, 1rem);
+
+				h3 {
+					font-size: 1rem;
+				}
+
+				h4 {
+					font-size: 0.8rem;
+				}
+
+				blockquote {
+					font-size: 0.8rem;
+				}
+
+				ul.alt li {
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+
+	@include breakpoint('<=xsmall') {
+		> article {
+			max-width: 24rem;
+
+			> .content {
+				@include padding(0.875rem, 0.875rem);
+			}
+		}
+	}
+}
+
+/* Spotlight responsive improvements για tabs */
+.spotlight {
+	@include breakpoint('<=medium') {
+		> ul {
+			li {
+				h4 {
+					font-size: 1rem;
+				}
+
+				p {
+					font-size: 0.875rem;
+					line-height: 1.6;
+				}
+			}
+		}
+
+		> .image {
+			margin: 1.5rem 0;
+			text-align: center;
+
+			img {
+				max-width: 100%;
+				height: auto;
+				border-radius: _size(border-radius);
+			}
+		}
+	}
+
+	@include breakpoint('<=small') {
+		> ul {
+			li {
+				h4 {
+					font-size: 0.9rem;
+				}
+
+				p {
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+}
+
+/* Mobile navigation improvements */
+@include breakpoint('<=medium') {
+	#nav {
+		ul {
+			li {
+				a {
+					padding: 0.75rem 1rem;
+					font-size: 0.9rem;
+				}
+
+				> ul {
+					li {
+						a {
+							padding: 0.5rem 1rem;
+							font-size: 0.85rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Image responsive improvements */
+.image {
+	&.fit {
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+	}
+
+	@include breakpoint('<=small') {
+		&.fit {
+			img {
+				max-height: 15rem;
+				object-position: center;
+			}
+		}
+	}
+
+	@include breakpoint('<=xsmall') {
+		&.fit {
+			img {
+				max-height: 12rem;
+			}
+		}
+	}
+}
+
+/* Table responsive improvements */
+.table-wrapper {
+	@include breakpoint('<=small') {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+
+		table {
+			min-width: 20rem;
+			font-size: 0.85rem;
+
+			td {
+				padding: 0.5rem 0.75rem;
+				
+				strong {
+					display: block;
+					color: _palette(accent1, bg);
+					font-size: 1.1em;
+					margin-bottom: 0.25rem;
+				}
+			}
+		}
+	}
+
+	@include breakpoint('<=xsmall') {
+		table {
+			font-size: 0.8rem;
+			
+			td {
+				padding: 0.4rem 0.5rem;
+			}
+		}
+	}
+}
+
+/* Header responsive improvements */
+@include breakpoint('<=medium') {
+	#header {
+		.logo {
+			a {
+				font-size: 1.25rem;
+				
+				.extra {
+					font-size: 0.9rem;
+				}
+			}
+		}
+	}
+}
+
+@include breakpoint('<=small') {
+	#header {
+		.logo {
+			a {
+				font-size: 1.1rem;
+				
+				.extra {
+					font-size: 0.8rem;
+					display: block;
+					margin-top: 0.25rem;
+				}
+			}
+		}
+	}
+}
+
+/* Actions buttons responsive */
+.actions {
+	&.special {
+		@include breakpoint('<=medium') {
+			@include vendor('justify-content', 'center');
+			
+			li {
+				margin: 0.5rem 0.25rem;
+
+				.button {
+					font-size: 0.9rem;
+					padding: 0.75rem 1.5rem;
+					
+					&.large {
+						font-size: 1rem;
+						padding: 1rem 2rem;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			flex-direction: column;
+			align-items: center;
+
+			li {
+				margin: 0.25rem 0;
+				width: 100%;
+				max-width: 16rem;
+
+				.button {
+					width: 100%;
+					font-size: 0.85rem;
+					padding: 0.875rem 1rem;
+
+					&.large {
+						font-size: 0.9rem;
+						padding: 1rem 1.5rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Banner video responsive */
+#banner {
+	video {
+		@include breakpoint('<=medium') {
+			object-position: center center;
+		}
+
+		@include breakpoint('<=small') {
+			object-position: 75% center;
+		}
+	}
+}
+
+/* Tabs responsive improvements */
+.tabs {
+	@include breakpoint('<=small') {
+		> .titles {
+			> .title {
+				padding: 0 0.75rem;
+				font-size: 0.8rem;
+
+				.extra {
+					display: none !important;
+				}
+			}
+		}
+
+		> .panels {
+			> .panel {
+				.spotlight {
+					> ul {
+						margin-bottom: 1rem;
+					}
+				}
+			}
+		}
+	}
+
+	@include breakpoint('<=xsmall') {
+		> .titles {
+			flex-wrap: wrap;
+			
+			> .title {
+				flex: 1 1 50%;
+				min-width: 50%;
+				padding: 0 0.5rem;
+				font-size: 0.75rem;
+			}
+		}
+	}
+}
