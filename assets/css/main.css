@@ -2616,11 +2616,18 @@ table.alt tbody tr td {
   padding: 2rem 1.5rem 0.1rem 1.5rem;
   border-radius: 0.5rem;
   box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 12rem;
 }
 .features > section .icon.major {
   font-size: 2.5rem;
   margin: 0 0 1rem 0;
   display: block;
+  color: #23b1ec;
 }
 .features > section h3 {
   margin: 0 0 1rem 0;
@@ -2792,15 +2799,18 @@ table.alt tbody tr td {
     width: calc(100% + 0.75rem);
   }
   .features > section {
-    margin: 0 auto 1.5rem auto;
+    margin: 0.5rem auto 2.25rem auto;
     max-width: 20rem;
     padding: 1.25rem 1rem 0.1rem 1rem;
+    min-height: 10rem;
   }
   .features > section .icon.major {
     font-size: 1.75rem;
+    margin-bottom: 0.75rem;
   }
   .features > section h3 {
     font-size: 1rem;
+    margin-bottom: 0.5rem;
   }
   .features > section p {
     font-size: 0.85rem;
@@ -2809,10 +2819,42 @@ table.alt tbody tr td {
 @media screen and (max-width: 480px) {
   .features > section {
     max-width: 18rem;
-    padding: 1rem 0.75rem 0.1rem 0.75rem;
+    padding: 1.25rem 0.75rem 0.1rem 0.75rem;
+    margin-bottom: 1rem;
+    width: 100%;
   }
 }
 
+/* Mobile Icon Improvements */
+@media screen and (max-width: 736px) {
+  .features .icon.major {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 0.75rem auto;
+    height: 3.5rem;
+    width: 3.5rem;
+    line-height: 3.5rem;
+    border-radius: 50%;
+    background-color: rgba(35, 177, 236, 0.1);
+    color: #23b1ec;
+  }
+  #statistics .features > section {
+    min-height: auto;
+    padding: 1.5rem 1rem;
+  }
+  #statistics .features > section .icon.major {
+    margin-bottom: 0.5rem;
+  }
+  #statistics .features > section h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  #statistics .features > section p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+}
 /* Posts Alt - για testimonials και doctor profile */
 .posts.alt {
   display: -moz-flex;
@@ -3226,10 +3268,14 @@ table.alt tbody tr td {
   .actions.special li .button {
     font-size: 0.9rem;
     padding: 0.75rem 1.5rem;
+    white-space: nowrap;
   }
   .actions.special li .button.large {
     font-size: 1rem;
     padding: 1rem 2rem;
+  }
+  .actions.special li .button i.fab {
+    margin-right: 0.5rem;
   }
 }
 @media screen and (max-width: 736px) {
@@ -3240,16 +3286,37 @@ table.alt tbody tr td {
   .actions.special li {
     margin: 0.25rem 0;
     width: 100%;
-    max-width: 16rem;
+    max-width: 20rem;
   }
   .actions.special li .button {
     width: 100%;
     font-size: 0.85rem;
-    padding: 0.875rem 1rem;
+    padding: 0.875rem 0.5rem;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .actions.special li .button i.fab {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.5rem;
   }
   .actions.special li .button.large {
     font-size: 0.9rem;
-    padding: 1rem 1.5rem;
+    padding: 1rem 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .actions.special li {
+    max-width: 18rem;
+  }
+  .actions.special li .button {
+    font-size: 0.8rem;
+    padding: 0.8rem 0.4rem;
   }
 }
 
@@ -3287,6 +3354,26 @@ table.alt tbody tr td {
     min-width: 50%;
     padding: 0 0.5rem;
     font-size: 0.75rem;
+  }
+}
+
+/* WhatsApp Button Mobile Optimizations */
+.button .fa-whatsapp {
+  margin-right: 0.5rem;
+}
+@media screen and (max-width: 736px) {
+  .button[href*="wa.me"] {
+    background-color: #25D366 !important;
+    color: #ffffff !important;
+    border-color: #25D366 !important;
+  }
+  .button[href*="wa.me"]:hover {
+    background-color: rgb(29.3911290323, 167.6088709677, 81.0241935484) !important;
+    border-color: rgb(29.3911290323, 167.6088709677, 81.0241935484) !important;
+  }
+  .button[href*="wa.me"] .fa-whatsapp {
+    display: inline-block;
+    margin-right: 0.3rem;
   }
 }
 
@@ -4934,3 +5021,5 @@ body.is-navPanel-visible #navPanel {
   transform: translateX(0);
   visibility: visible;
 }
+
+/*# sourceMappingURL=main.css.map */

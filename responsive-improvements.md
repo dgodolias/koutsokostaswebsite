@@ -1,6 +1,31 @@
 # Responsive Design Improvements
 ## Δρ. Βασίλειος Γκολεζάκης Website
 
+### Πρόσφατες Βελτιώσεις Mobile Προβολής (07/06/2025)
+
+#### 1. **Διορθώσεις Features Grid** 
+- Προσθήκη `align-items: center` για καλύτερη κεντρική στοίχιση περιεχομένου
+- Εξασφάλιση σταθερού ύψους με `min-height: 12rem`
+- Προσθήκη `width: 100%` για πλήρες πλάτος σε mobile συσκευές
+- Βελτίωση διαχείρισης χώρου και περιθωρίων για καλύτερη εμφάνιση
+
+#### 2. **Βελτιώσεις Κουμπιών**
+- Διόρθωση θέματος με το wrapping κειμένου σε κουμπιά με `white-space: nowrap`
+- Βελτίωση της στοίχισης με `display: flex`, `justify-content: center`, `align-items: center`
+- Καλύτερη διαχείριση εικονιδίων WhatsApp με `margin-right: 0.5rem` 
+- Προσθήκη `display: inline-flex` για τα εικονίδια για καλύτερη ευθυγράμμιση
+
+#### 3. **Ειδικές Βελτιώσεις Εικονιδίων σε Mobile**
+- Προσθήκη στρογγυλεμένου background στα εικονίδια με `border-radius: 50%`
+- Προσθήκη ημιδιαφανούς background color: `background-color: rgba(_palette(accent1, bg), 0.1)`
+- Εξασφάλιση σταθερού μεγέθους με `height: 3.5rem` και `width: 3.5rem`
+- Κεντρική στοίχιση του εικονιδίου με `display: flex`, `justify-content: center`, `align-items: center`
+
+#### 4. **Προσαρμογές για το Statistics Section**
+- Επιτρέπει dynamic height με `min-height: auto`
+- Μειωμένα περιθώρια και padding για καλύτερη εμφάνιση
+- Βελτιωμένα μεγέθη γραμματοσειρών και line height για καλύτερη αναγνωσιμότητα
+
 ### Αλλαγές που έγιναν για Mobile Responsiveness
 
 #### 1. **Νέο SASS αρχείο: `_responsive-custom.scss`**
@@ -75,7 +100,7 @@ xxsmall:  ( null,    360px   )
 ✅ Professional εμφάνιση σε όλες τις συσκευές
 
 ### Testing:
-Η ιστοσελίδα τέστάρεται και λειτουργεί σωστά σε:
+Η ιστοσελίδα τέσταρεται και λειτουργεί σωστά σε:
 - Desktop (1920px+)
 - Laptop (1366px)
 - Tablet (768px)
