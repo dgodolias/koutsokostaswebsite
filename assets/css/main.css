@@ -5023,3 +5023,114 @@ body.is-navPanel-visible #navPanel {
 }
 
 /*# sourceMappingURL=main.css.map */
+
+/* Custom fixes for text visibility and padding issues */
+
+/* Fix white text issue in .inner sections with accent backgrounds */
+#wrapper > .main.accent1 .inner,
+#wrapper > .main.accent2 .inner {
+  color: #3b3b3b !important;
+}
+
+#wrapper > .main.accent1 .inner h1,
+#wrapper > .main.accent1 .inner h2,
+#wrapper > .main.accent1 .inner h3,
+#wrapper > .main.accent1 .inner h4,
+#wrapper > .main.accent1 .inner h5,
+#wrapper > .main.accent1 .inner h6,
+#wrapper > .main.accent2 .inner h1,
+#wrapper > .main.accent2 .inner h2,
+#wrapper > .main.accent2 .inner h3,
+#wrapper > .main.accent2 .inner h4,
+#wrapper > .main.accent2 .inner h5,
+#wrapper > .main.accent2 .inner h6 {
+  color: #3b3b3b !important;
+}
+
+#wrapper > .main.accent1 .inner p,
+#wrapper > .main.accent1 .inner strong,
+#wrapper > .main.accent1 .inner b,
+#wrapper > .main.accent2 .inner p,
+#wrapper > .main.accent2 .inner strong,
+#wrapper > .main.accent2 .inner b {
+  color: #3b3b3b !important;
+}
+
+#wrapper > .main.accent1 .inner a,
+#wrapper > .main.accent2 .inner a {
+  color: #23b1ec !important;
+}
+
+/* Fix article padding for perfect image fitting */
+.posts > div > article {
+  padding: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.posts > div > article > .image {
+  margin: 0;
+  border-radius: 0.5rem 0.5rem 0 0;
+  overflow: hidden;
+}
+
+.posts > div > article > .image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.posts > div > article > .content {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* Fix alt posts (testimonials) padding */
+.posts.alt > article {
+  padding: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.posts.alt > article > .image {
+  margin: 0;
+  border-radius: 0.5rem 0.5rem 0 0;
+  overflow: hidden;
+}
+
+.posts.alt > article > .image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.posts.alt > article > .content {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* Fix table text visibility in accent sections */
+#wrapper > .main.accent1 .inner table,
+#wrapper > .main.accent1 .inner table td,
+#wrapper > .main.accent1 .inner table th,
+#wrapper > .main.accent2 .inner table,
+#wrapper > .main.accent2 .inner table td,
+#wrapper > .main.accent2 .inner table th {
+  color: #3b3b3b !important;
+}
+
+/* Fix blockquote text visibility in accent sections */
+#wrapper > .main.accent1 .inner blockquote,
+#wrapper > .main.accent2 .inner blockquote {
+  color: #3b3b3b !important;
+}
+
+/* Fix list text visibility in accent sections */
+#wrapper > .main.accent1 .inner ul li,
+#wrapper > .main.accent1 .inner ol li,
+#wrapper > .main.accent2 .inner ul li,
+#wrapper > .main.accent2 .inner ol li {
+  color: #3b3b3b !important;
+}
