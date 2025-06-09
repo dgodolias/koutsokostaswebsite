@@ -1,0 +1,478 @@
+/* 
+ * Special fixes for text colors in accent sections 
+ * Using very specific selectors to override theme defaults
+ */
+
+// Fix for posts in accent1 sections - Making sure text is visible
+#wrapper > .main.accent1 {
+  .posts.alt {
+    // Add spacing between posts
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    
+    > article {
+      background-color: #ffffff !important; // Keeping background white with !important to override theme
+      margin-bottom: 2rem !important; // Increased spacing between articles
+      
+      > .content {
+        color: #3b3b3b !important; // Making text black with !important
+        padding-right: 0.75rem !important; // Reduced right padding for better image fit
+        
+        h3 {
+          color: #3b3b3b !important; // Making headings darker/black
+        }
+        
+        h4 {
+          color: #23b1ec !important; // Keep accent color
+        }
+        
+        p {
+          color: #3b3b3b !important; // Making paragraph text black
+          
+          strong, b {
+            color: #3b3b3b !important; // Making strong text black too
+          }
+        }
+        
+        strong, b {
+          color: #3b3b3b !important; // Making all strong text black
+        }
+        
+        blockquote {
+          color: #3b3b3b !important; // Making blockquote text black
+        }
+        
+        ul.alt li {
+          color: #3b3b3b !important; // Making list text black
+          
+          strong {
+            color: #23b1ec !important; // Keep accent color for strong text in lists
+          }
+        }
+        
+        // Fix buttons in posts content
+        .actions {
+          .button {
+            color: #ffffff !important;
+            
+            &.primary {
+              background-color: #23b1ec !important;
+              color: #ffffff !important;
+              border-color: #23b1ec !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Fix for features section in accent1
+  .features {
+    // Add spacing between feature sections
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+    
+    > section {
+      background-color: #ffffff !important; // White background for feature cards
+      margin-bottom: 1.5rem !important; // Add space between sections
+      flex: 1 1 calc(33.333% - 1rem) !important; // Responsive flex basis
+      
+      h3 {
+        color: #3b3b3b !important; // Black headings
+      }
+      
+      p {
+        color: #3b3b3b !important; // Black text
+      }
+      
+      .icon.major {
+        color: #23b1ec !important; // Keep accent color for icons - force visibility
+        background-color: rgba(35, 177, 236, 0.1) !important; // Light background for icons
+      }
+      
+      // Fix buttons in features
+      .button {
+        color: #ffffff !important; // White text on buttons
+        
+        &.primary {
+          background-color: #23b1ec !important; // Blue background for primary buttons
+          color: #ffffff !important; // White text
+          border-color: #23b1ec !important;
+        }
+      }
+      
+      // Fix any action buttons
+      .actions {
+        .button {
+          color: #ffffff !important;
+          
+          &.primary {
+            background-color: #23b1ec !important;
+            color: #ffffff !important;
+            border-color: #23b1ec !important;
+          }
+        }
+      }
+    }
+  }
+  
+  // Fix for any other text elements that might be white
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important; // Keep section headers white (they should be white in the blue header)
+  }
+  
+  .inner {
+    h1, h2, h3, h4, h5, h6 {
+      color: #3b3b3b !important; // But make content area headers black
+    }
+    
+    p {
+      color: #3b3b3b !important; // Content area paragraphs black
+      
+      strong, b {
+        color: #3b3b3b !important; // Strong text in paragraphs black
+      }
+    }
+    
+    strong, b {
+      color: #3b3b3b !important; // Content area strong text black
+    }
+    
+    // Fix any specific elements that might still be white
+    * {
+      color: #3b3b3b !important; // Force all inner content to be black
+    }
+    
+    // But preserve accent colors for specific elements
+    .button, .button.primary {
+      color: #ffffff !important; // Keep button text white
+    }
+    
+    .icon.major {
+      color: #23b1ec !important; // Keep icons accent colored
+    }
+    
+    // Fix for any missed header elements
+    header h1, header h2, header h3, header h4 {
+      color: #ffffff !important; // Keep section header text white
+    }
+  }
+  
+  // Additional comprehensive fixes for any remaining white text
+  .posts.alt article .content {
+    * {
+      color: #3b3b3b !important; // Force all content to be black
+    }
+    
+    .button, .button.primary {
+      color: #ffffff !important; // Except buttons
+    }
+  }
+  
+  .features section {
+    * {
+      color: #3b3b3b !important; // Force all features content to be black
+    }
+    
+    .icon.major {
+      color: #23b1ec !important; // Except icons
+    }
+  }
+}
+
+// Global button fixes for ALL accent1 sections
+#wrapper > .main.accent1 {
+  // Fix ALL buttons globally in accent1 sections
+  .button {
+    color: #ffffff !important; // White text on all buttons
+    background-color: #23b1ec !important; // Blue background
+    border-color: #23b1ec !important; // Blue border
+    
+    &.primary {
+      background-color: #23b1ec !important; // Blue background for primary buttons
+      color: #ffffff !important; // White text
+      border-color: #23b1ec !important;
+    }
+    
+    &:not(.primary) {
+      color: #ffffff !important; // White text for secondary buttons too
+      border-color: #23b1ec !important;
+      background-color: rgba(35, 177, 236, 0.1) !important; // Semi-transparent background
+    }
+    
+    &:hover {
+      background-color: #1a8bc4 !important; // Darker blue on hover
+      color: #ffffff !important;
+    }
+  }
+  
+  // Fix actions container buttons specifically
+  .actions {
+    .button {
+      color: #ffffff !important;
+      background-color: #23b1ec !important;
+      border-color: #23b1ec !important;
+      
+      &.primary {
+        background-color: #23b1ec !important;
+        color: #ffffff !important;
+        border-color: #23b1ec !important;
+      }
+      
+      &:hover {
+        background-color: #1a8bc4 !important;
+        color: #ffffff !important;
+      }
+    }
+  }
+  
+  // Force icon visibility with stronger selectors
+  .icon.major {
+    color: #23b1ec !important; // Blue icons
+    background-color: rgba(35, 177, 236, 0.1) !important; // Light blue background
+    border-radius: 50% !important; // Make circular background
+    padding: 0.5rem !important; // Add padding to show background
+  }
+  
+  // Fix feature sections spacing more aggressively
+  .features {
+    margin-bottom: 2rem !important;
+    
+    > section {
+      margin: 0 1rem 1.5rem 0 !important; // Right and bottom margins
+      
+      &:last-child {
+        margin-right: 0 !important; // Remove right margin from last item
+      }
+    }
+  }
+  
+  // Fix posts.alt spacing more aggressively  
+  .posts.alt {
+    > article {
+      margin-bottom: 2.5rem !important; // More space between articles
+      
+      &:last-child {
+        margin-bottom: 0 !important; // Remove bottom margin from last article
+      }
+    }
+  }
+}
+
+// Horizontal Layout for Section #four articles only
+#four.main.accent1 .posts.alt > article {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  padding: 0 !important; // Remove all padding from article
+  overflow: hidden !important;
+  
+  > .image {
+    width: 40% !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    
+    img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+  }
+  
+  > .content {
+    width: 60% !important;
+    flex: 1 !important;
+    padding: 1.5rem !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+}
+
+// Responsive adjustments for horizontal layout
+@include breakpoint('<=large') {
+  #four.main.accent1 .posts.alt > article {
+    > .image {
+      width: 35% !important;
+    }
+    
+    > .content {
+      width: 65% !important;
+      padding: 1.25rem !important;
+    }
+  }
+}
+
+@include breakpoint('<=medium') {
+  #four.main.accent1 .posts.alt > article {
+    flex-direction: column !important; // Stack vertically on medium screens
+    
+    > .image {
+      width: 100% !important;
+      height: 200px !important;
+    }
+    
+    > .content {
+      width: 100% !important;
+      padding: 1rem !important;
+    }
+  }
+}
+
+@include breakpoint('<=small') {
+  #four.main.accent1 .posts.alt > article {
+    > .content {
+      padding: 0.75rem !important;
+    }
+  }
+}
+
+// Responsive adjustments for different screen sizes
+@include breakpoint('<=large') {
+  #wrapper > .main.accent1 .posts.alt > article {
+    margin-bottom: 2rem !important;
+    
+    > .content {
+      padding-right: 0.5rem !important;
+    }
+  }
+}
+
+@include breakpoint('<=medium') {
+  #wrapper > .main.accent1 .posts.alt > article {
+    margin-bottom: 1.5rem !important;
+    
+    > .content {
+      padding-right: 0.4rem !important;
+    }
+  }
+}
+
+@include breakpoint('<=small') {
+  #wrapper > .main.accent1 .posts.alt > article {
+    margin-bottom: 1rem !important;
+    
+    > .content {
+      padding-right: 0.3rem !important;
+    }
+  }
+}
+
+// Spacing between features and posts - more specific selector
+#wrapper > .main.accent1 .features + .posts.alt {
+  margin-top: 3rem !important;
+}
+
+@include breakpoint('<=medium') {
+  #wrapper > .main.accent1 .features + .posts.alt {
+    margin-top: 2rem !important;
+  }
+}
+
+@include breakpoint('<=small') {
+  #wrapper > .main.accent1 .features + .posts.alt {
+    margin-top: 1.5rem !important;
+  }
+}
+
+// Mobile responsive fixes for spacing
+@include breakpoint('<=medium') {
+  #wrapper > .main.accent1 {
+    .features {
+      > section {
+        margin: 0 0 1rem 0 !important; // Stack on mobile with bottom margin only
+        flex: 1 1 100% !important; // Full width on mobile
+      }
+    }
+    
+    .posts.alt {
+      gap: 1.5rem !important; // Smaller gap on mobile
+    }
+  }
+}
+
+@include breakpoint('<=small') {
+  #wrapper > .main.accent1 {
+    .features {
+      > section {
+        margin: 0 0 1rem 0 !important;
+      }
+    }
+    
+    .posts.alt {
+      gap: 1rem !important; // Even smaller gap on small screens
+    }
+  }
+}
+
+// Fix for posts.alt container to allow full width articles
+#four.main.accent1 .posts.alt {
+  // Override the default posts.alt flex behavior for section #four only
+  > * {
+    width: 100% !important; // Make articles take full width
+    padding: 0 !important; // Remove default padding
+  }
+  
+  // Remove the alternating column behavior for section #four
+  > :nth-child(2n + 1),
+  > :nth-child(2n) {
+    width: 100% !important; // Full width for all articles
+    padding: 0 !important; // No padding
+  }
+}
+
+// Features sections - ensure they fit in one row
+#four.main.accent1 .features {
+  display: flex !important;
+  flex-wrap: nowrap !important; // Prevent wrapping to stay in one row
+  gap: 1rem !important; // Smaller gap to fit better
+  justify-content: space-between !important; // Distribute evenly
+  
+  > section {
+    flex: 1 !important; // Equal width for all sections
+    min-width: 0 !important; // Allow shrinking
+    max-width: none !important; // Remove max-width constraints
+    margin: 0 !important; // Remove individual margins
+    padding: 1rem !important; // Smaller padding to fit better
+  }
+}
+
+// Responsive adjustments for features
+@include breakpoint('<=large') {
+  #four.main.accent1 .features {
+    gap: 0.75rem !important;
+    
+    > section {
+      padding: 0.875rem !important;
+    }
+  }
+}
+
+@include breakpoint('<=medium') {
+  #four.main.accent1 .features {
+    flex-wrap: wrap !important; // Allow wrapping on smaller screens
+    gap: 1rem !important;
+    
+    > section {
+      flex: 1 1 calc(50% - 0.5rem) !important; // Two per row on medium screens
+      max-width: calc(50% - 0.5rem) !important;
+    }
+  }
+}
+
+@include breakpoint('<=small') {
+  #four.main.accent1 .features {
+    flex-direction: column !important; // Stack on small screens
+    
+    > section {
+      flex: none !important;
+      width: 100% !important;
+      max-width: none !important;
+    }
+  }
+}

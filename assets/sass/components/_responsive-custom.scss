@@ -173,14 +173,12 @@
 	@include fixed-grid((
 		columns: 2,
 		gutters: ($padding * 0.5)
-	));
-
-	> article {
-		background-color: _palette(bg);
-		margin: 0 0 ($padding * 0.5) 0;
-		border-radius: _size(border-radius);
-		overflow: hidden;
-		box-shadow: 0 0.125rem 0.5rem 0 rgba(0,0,0,0.1);
+	));		> article {
+			background-color: _palette(bg); // Keeping background white
+			margin: 0 0 ($padding * 1) 0; // Increased bottom margin
+			border-radius: _size(border-radius);
+			overflow: hidden;
+			box-shadow: 0 0.125rem 0.5rem 0 rgba(0,0,0,0.1);
 
 		> .image {
 			width: 100%;
@@ -192,17 +190,19 @@
 		}
 
 		> .content {
-			@include padding(1.5rem, 1.5rem);
+			@include padding(1.5rem, 1.25rem); // Reduced right padding for better image fit
+			color: _palette(fg); // Ensuring text is black against white background
 
 			h3 {
 				margin: 0 0 1rem 0;
 				font-size: 1.25rem;
+				color: _palette(fg-bold); // Ensuring heading is darker/black
 			}
 
 			h4 {
 				margin: 0 0 0.75rem 0;
 				font-size: 0.9rem;
-				color: _palette(accent1, bg);
+				color: _palette(accent1, bg); // Keeping accent color for subheadings
 				font-weight: _font(weight-bold);
 			}
 
@@ -214,6 +214,7 @@
 				background: none;
 				font-size: 0.9rem;
 				line-height: 1.6;
+				color: _palette(fg); // Ensuring blockquote text is visible (black)
 			}
 
 			.icons {
@@ -242,16 +243,14 @@
 	}
 
 	@include breakpoint('<=large') {
-		$padding: _size(padding, large);
+		$padding: _size(padding, large);			@include fixed-grid((
+		columns: 2,
+		gutters: ($padding * 0.5),
+		prev-columns: 2
+	));
 
-		@include fixed-grid((
-			columns: 2,
-			gutters: ($padding * 0.5),
-			prev-columns: 2
-		));
-
-		> article {
-			margin: 0 0 ($padding * 0.5) 0;
+	> article {
+		margin: 0 0 ($padding * 0.8) 0; // Increased space between articles
 
 			> .content {
 				@include padding(1.25rem, 1.25rem);
@@ -269,18 +268,31 @@
 		));
 
 		> article {
-			margin: 0 auto ($padding * 0.5) auto;
+			margin: 0 auto ($padding * 1) auto; // Increased space between articles
 			max-width: 32rem;
 
 			> .content {
-				@include padding(1.25rem, 1.25rem);
+				@include padding(1.25rem, 0.75rem); // Reduced right padding for better image fit
+				color: _palette(fg); // Ensuring text is visible (black) against white background
 
 				h3 {
 					font-size: 1.125rem;
+					color: _palette(fg-bold); // Making headings darker/black
+				}
+
+				h4 {
+					color: _palette(accent1, bg); // Keeping accent color for subheadings
 				}
 
 				blockquote {
 					font-size: 0.875rem;
+					color: _palette(fg); // Ensuring blockquote text is visible
+				}
+				
+				.icons {
+					.icon {
+						color: #ffa500; // Keeping the icon color
+					}
 				}
 			}
 		}
@@ -297,24 +309,34 @@
 
 		> article {
 			max-width: 28rem;
+			margin-bottom: ($padding * 1.2); // Increased space between articles
 
 			> .content {
-				@include padding(1rem, 1rem);
+				@include padding(1rem, 0.6rem); // Reduced right padding for better image fit
+				color: _palette(fg); // Ensuring text is visible (black) against white background
 
 				h3 {
 					font-size: 1rem;
+					color: _palette(fg-bold); // Making headings darker/black
 				}
 
 				h4 {
 					font-size: 0.8rem;
+					color: _palette(accent1, bg); // Keeping accent color for subheadings
 				}
 
 				blockquote {
 					font-size: 0.8rem;
+					color: _palette(fg); // Ensuring blockquote text is visible
 				}
 
 				ul.alt li {
 					font-size: 0.8rem;
+					color: _palette(fg); // Ensuring list text is visible
+					
+					strong {
+						color: _palette(accent1, bg); // Keeping accent color for strong text
+					}
 				}
 			}
 		}
@@ -323,11 +345,35 @@
 	@include breakpoint('<=xsmall') {
 		> article {
 			max-width: 24rem;
+			margin-bottom: 1.5rem; // Increased space between articles at xsmall size
 
 			> .content {
-				@include padding(0.875rem, 0.875rem);
+				@include padding(0.875rem, 0.5rem); // Reduced right padding for better image fit
+				color: _palette(fg); // Ensuring text is visible (black) against white background
+				
+				// Ensuring good spacing between content elements
+				h3, h4, blockquote, ul.alt {
+					margin-bottom: 0.75rem;
+				}
 			}
 		}
+	}
+}
+
+/* Features and Posts spacing */
+.features + .posts.alt {
+	margin-top: 3rem;
+}
+
+@include breakpoint('<=medium') {
+	.features + .posts.alt {
+		margin-top: 2rem;
+	}
+}
+
+@include breakpoint('<=small') {
+	.features + .posts.alt {
+		margin-top: 1.5rem;
 	}
 }
 
