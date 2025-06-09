@@ -686,3 +686,303 @@
 		}
 	}
 }
+
+/* Section #four specific styles - Contact section with horizontal layout */
+#four {
+	// Features section - ensure single row layout
+	.features {
+		display: flex;
+		flex-wrap: nowrap;
+		gap: 1rem;
+		justify-content: space-between;
+		
+		> section {
+			flex: 1;
+			min-width: 0;
+			margin: 0;
+			padding: 1rem;
+		}
+		
+		@include breakpoint('<=large') {
+			gap: 0.75rem;
+			
+			> section {
+				padding: 0.875rem;
+			}
+		}
+		
+		@include breakpoint('<=medium') {
+			flex-wrap: wrap;
+			gap: 1rem;
+			
+			> section {
+				flex: 1 1 calc(50% - 0.5rem);
+				max-width: calc(50% - 0.5rem);
+			}
+		}
+		
+		@include breakpoint('<=small') {
+			flex-direction: column;
+			
+			> section {
+				flex: none;
+				width: 100%;
+				max-width: none;
+			}
+		}
+	}
+	
+	// Posts.alt - horizontal layout for contact articles
+	.posts.alt {
+		> * {
+			width: 100%;
+			padding: 0;
+		}
+		
+		> :nth-child(2n + 1),
+		> :nth-child(2n) {
+			width: 100%;
+			padding: 0;
+		}
+		
+		> article {
+			display: flex;
+			flex-direction: row;
+			align-items: stretch;
+			padding: 0;
+			
+			> .image {
+				width: 40%;
+				flex-shrink: 0;
+				margin: 0;
+				padding: 0;
+				
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					display: block;
+				}
+			}
+			
+			> .content {
+				width: 60%;
+				flex: 1;
+				padding: 1.5rem;
+				margin: 0;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+			}
+			
+			@include breakpoint('<=large') {
+				> .image {
+					width: 35%;
+				}
+				
+				> .content {
+					width: 65%;
+					padding: 1.25rem;
+				}
+			}
+			
+			@include breakpoint('<=medium') {
+				flex-direction: column;
+				
+				> .image {
+					width: 100%;
+					height: 200px;
+				}
+				
+				> .content {
+					width: 100%;
+					padding: 1rem;
+				}
+			}
+			
+			@include breakpoint('<=small') {
+				> .content {
+					padding: 0.75rem;
+				}
+			}
+		}
+	}
+}
+
+/* Hide map buttons specifically */
+.button[href*="maps.google"] {
+	display: none !important;
+}
+
+/* Article spacing fixes for equal borders */
+#four .posts.alt > article {
+	// Fix padding/spacing issues - ensure equal borders around images
+	> .image {
+		margin: 0;
+		padding: 0;
+		
+		img {
+			margin: 0;
+			padding: 0;
+			border: none;
+			border-radius: 0;
+		}
+	}
+	
+	> .content {
+		// Ensure equal padding on all sides for content
+		padding: 1.5rem !important;
+		margin: 0;
+		
+		@include breakpoint('<=large') {
+			padding: 1.25rem !important;
+		}
+		
+		@include breakpoint('<=medium') {
+			padding: 1rem !important;
+		}
+		
+		@include breakpoint('<=small') {
+			padding: 0.75rem !important;
+		}
+	}
+}
+
+/* Global button text contrast fixes */
+.button {
+	// Ensure all button text is visible regardless of context
+	&.primary {
+		color: white !important;
+		
+		&:hover {
+			color: white !important;
+		}
+	}
+	
+	&:not(.primary) {
+		color: _palette(accent1, bg) !important;
+		
+		&:hover {
+			color: white !important;
+		}
+	}
+}
+
+/* Fix white icons in all contexts */
+.icon.major {
+	// Force accent color for better visibility
+	color: _palette(accent1, bg) !important;
+	
+	// Add background for better contrast if needed
+	&.fa-phone, &.fa-map-marker-alt, &.fa-clock, &.fa-envelope {
+		background-color: rgba(_palette(accent1, bg), 0.1);
+		border-radius: 50%;
+		width: 3rem;
+		height: 3rem;
+		line-height: 3rem;
+		display: inline-flex !important;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+/* Accent1 sections - proper color overrides for visibility */
+#wrapper > .main.accent1 {
+	// Override the default white text on blue background for content areas
+	.inner {
+		// Make sure content text is visible
+		color: _palette(fg);
+		
+		h1, h2, h3, h4, h5, h6 {
+			color: _palette(fg-bold);
+		}
+		
+		p, li {
+			color: _palette(fg);
+		}
+		
+		strong, b {
+			color: _palette(fg-bold);
+		}
+	}
+	
+	// Posts.alt specific fixes for accent1 sections
+	.posts.alt {
+		> article {
+			background-color: _palette(bg);
+			
+			> .content {
+				color: _palette(fg);
+				
+				h3 {
+					color: _palette(fg-bold);
+				}
+				
+				h4 {
+					color: _palette(accent1, bg);
+				}
+				
+				p, li {
+					color: _palette(fg);
+				}
+				
+				strong, b {
+					color: _palette(fg-bold);
+				}
+				
+				.button {
+					// Ensure proper contrast for all buttons
+					&.primary {
+						background-color: _palette(accent1, bg);
+						color: _palette(bg) !important;
+						border-color: _palette(accent1, bg);
+						
+						&:hover {
+							background-color: darken(_palette(accent1, bg), 15%);
+							color: _palette(bg) !important;
+						}
+					}
+					
+					&:not(.primary) {
+						background-color: _palette(bg);
+						color: _palette(accent1, bg) !important;
+						border-color: _palette(accent1, bg);
+						
+						&:hover {
+							background-color: _palette(accent1, bg);
+							color: _palette(bg) !important;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	// Features section fixes for accent1
+	.features {
+		> section {
+			background-color: _palette(bg);
+			
+			h3 {
+				color: _palette(fg-bold);
+			}
+			
+			p {
+				color: _palette(fg);
+			}
+			
+			.icon.major {
+				color: _palette(accent1, bg) !important;
+				// Fix white icon visibility issue
+				background-color: rgba(_palette(accent1, bg), 0.1);
+				border-radius: 50%;
+				width: 4rem;
+				height: 4rem;
+				line-height: 4rem;
+				display: flex !important;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	}
+}
