@@ -1,0 +1,76 @@
+// Google Fonts Import
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap&subset=greek,greek-ext,latin-ext');
+
+// Font Variables
+$font-roboto: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-opensans: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-sourcesans: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-ibm: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+// Default Font Selection (αλλάξτε την τιμή για να αλλάξετε το font σε όλο το site)
+$primary-font: $font-inter;
+
+// Font Mixins για εύκολη χρήση
+@mixin heading-font {
+    font-family: $primary-font;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+@mixin body-font {
+    font-family: $primary-font;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+@mixin nav-font {
+    font-family: $primary-font;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+// Font Classes για εύκολη εναλλαγή
+.font-roboto {
+    font-family: $font-roboto !important;
+}
+
+.font-opensans {
+    font-family: $font-opensans !important;
+}
+
+.font-sourcesans {
+    font-family: $font-sourcesans !important;
+}
+
+.font-ibm {
+    font-family: $font-ibm !important;
+}
+
+.font-inter {
+    font-family: $font-inter !important;
+}
+
+/* Font Optimizations για Ελληνικά */
+body {
+    font-family: $primary-font;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+
+/* Ειδικές ρυθμίσεις για τα Ελληνικά */
+:lang(el) {
+    font-weight: normal; // Εξασφαλίζει συνέπεια μεταξύ Ελληνικών/Αγγλικών
+    
+    strong, b {
+        font-weight: 600; // Ελαφρώς πιο έντονο για καλύτερη αναγνωσιμότητα
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+        letter-spacing: -0.01em; // Βελτιωμένο kerning για ελληνικές επικεφαλίδες
+    }
+}

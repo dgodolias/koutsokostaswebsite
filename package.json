@@ -1,0 +1,24 @@
+{
+  "name": "koutsokostaswebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass assets/sass/main.scss assets/css/main.css --output-style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgodolias/koutsokostaswebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dgodolias/koutsokostaswebsite/issues"
+  },
+  "homepage": "https://github.com/dgodolias/koutsokostaswebsite#readme",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
